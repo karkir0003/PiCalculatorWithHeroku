@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-import eel
+
 
 app = Flask("helloWorldApp")
 
-@eel.expose
+
 @app.route('/')
 def index():
     return render_template('index.html')
