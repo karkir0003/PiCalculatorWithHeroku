@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'CSS/main.CSS') }}">
+</head>
+<body>
+    <header>
+        <h1>Currency Converter</h1>
+        <br>
+        <a href= />
+        <button>Return</button>
+        </a>
+        <br>
+        <br>
+        <br>
+        <p>
+            Using the <a href="https://fixer.io/">Fixer.io</a> API, we created our own up-to-date currency converter. <br>
+            Our converter features 170 world currencies and features both current and historical foreign exchange (forex) rates.
+        </p>
+        <br>
+        <br>
+            <form method="post" action=computeConv style="text-align:center">
+            <table>
+              {% for field in form %}
+                <tr>
+                    <td>{{ field.label}}</td>
+                    <br>
+                    <td>{{ field }}</td>
+                    <br>
+
+                </tr>
+              {% endfor %}
+            </table>
+            <p>
+            <div id="result">
+              {{ baseCurrAmount }} {{ baseCurr }} ===> {{ targetValue }} {{ targetCurr }}
+            </div>
+            </p>
+                    <br>
+                    <br>
+                    <br>
+                <p><input type=submit value=Compute></form></p>
+            <br>
+            </form>
+    </header>
+</body>
+</html>

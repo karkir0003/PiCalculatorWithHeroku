@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PiCalculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'CSS/main.CSS') }}">
+</head>
+<body>
+    <header>
+        <h1>PiCalculator</h1>
+        <br>
+        <a href= />
+        <button>Return</button>
+        </a>
+        <br>
+        <br>
+        <br>
+        <p>
+            Using the both the Machin & Arctan Taylor Series formulas, we approximate π to 'n' decimal places. <br>
+            The Machin formula is the fast approximation, while the Arctan Taylor Series is the slow approximation.
+        </p>
+        <br>
+        <br>
+            <form method="post" action=computeResult style="text-align:center">
+            <table>
+              {% for field in form %}
+                <tr>
+                    <td>{{ field.label}}</td>
+                    <br>
+                    <td>{{ field }}</td>
+                    <br>
+
+                </tr>
+              {% endfor %}
+            </table>
+            <p>
+            {% if result != None %}
+            <img src="{{ result }}" width=500>
+            {% endif %}
+            <div id="result">
+                {% if numTerms is defined %}
+                    {% if approximation is defined %}
+                        π is approximately {{ approximation }} with {{numTerms}} terms summed up
+                    {% endif %}
+                {% endif %}
+            </div>
+            </p>
+                    <br>
+                    <br>
+                    <br>
+                <p><input type=submit value=Compute></form></p>
+            <br>
+            </form>
+            <br>
+            <a href= monteCarlo>
+            <button>Click to view interactive widgets on approximating pi with Monte Carlo Method</button>
+            </a>
+            <br>
+             <a href="https://mybinder.org/v2/gist/karkir0003/f454a6c1d7f6a1f52404fa025e4cd0f4/HEAD" target="_blank">If initializing the widgets is taking too long, click this link and run the .ipynb file!</a>
+             <br>
+           <a href="https://drive.google.com/file/d/16QofB0T-uPWTQRqE3ih6BnnSXtZZDij2/preview" target="_blank">View Our Documentation</a>
+    </header>
+</body>
+</html>
