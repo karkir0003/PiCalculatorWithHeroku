@@ -16,7 +16,7 @@ def index():
 
 @app.route('/picalc')
 def picalc():
-    return render_template('../templates/PiCalc.html')
+    return render_template('PiCalc.html')
 
 
 @app.route("/computeResult", methods=['GET', 'POST'])
@@ -41,12 +41,12 @@ def computeResult():
             print(approximation)
     else:
         result = None
-    return render_template("../templates/PiCalc.html", form=form, result=result, numTerms=numTerms, approximation=approximation)
+    return render_template("PiCalc.html", form=form, result=result, numTerms=numTerms, approximation=approximation)
 
 
 @app.route("/CurrencyConv")
 def currConv():
-    return render_template("../templates/CurrencyConv.html")
+    return render_template("CurrencyConv.html")
 
 
 @app.route("/computeConv", methods=['GET', 'POST'])
@@ -58,13 +58,13 @@ def computeConv():
     obj = Conv(baseCurr, targetCurr, amount)
     resultAmount = obj.urlResponse()
     my_string = '{:,.2f}'.format(resultAmount)
-    return render_template("../templates/CurrencyConv.html", form=form,  baseCurrAmount=amount, baseCurr=baseCurr,
+    return render_template("CurrencyConv.html", form=form,  baseCurrAmount=amount, baseCurr=baseCurr,
                            targetValue=my_string, targetCurr=targetCurr)
 
 
 @app.route("/monteCarlo")
 def monteCarlo():
-    return render_template("../templates/PiApproxMonteCarlo.html")
+    return render_template("PiApproxMonteCarlo.html")
 
 
 if __name__ == '__main__':
